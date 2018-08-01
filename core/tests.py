@@ -3,8 +3,8 @@ from django.test.client import RequestFactory
 from django.urls.base import reverse
 from django.contrib.auth.models import AnonymousUser, User
 
-from core.models import Movie
-from core.views import MovieList
+from .models import Movie
+from .views import MovieList
 
 
 # Create your tests here.
