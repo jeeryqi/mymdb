@@ -1,9 +1,10 @@
 from django.test import TestCase
 from django.test.client import RequestFactory
 from django.urls.base import reverse
+from django.contrib.auth.models import AnonymousUser, User
 
-from .models import Movie
-from .views import MovieList
+from core.models import Movie
+from core.views import MovieList
 
 
 # Create your tests here.
@@ -19,9 +20,12 @@ class MovieListPaginationTestCase(TestCase):
         for n in range(15):
             Movie.objects.create(
                 title='Title {}'.format(n),
+                plot='Plot {}'.format(n),
                 year=1990 + n,
+                rating=0,
                 runtime=100 + n,
             )
+        # User.objects.create_user(username='admin1', email='admin1@admin1.com', password='rootroot')
 
     def testFirstPage(self):
         movie_list_path = reverse('core:MovieList')
