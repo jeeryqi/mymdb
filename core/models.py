@@ -112,8 +112,8 @@ class Vote(models.Model):
     UP = 1
     DOWN = -1
     VALUE_CHOICES = (
-        (UP, 'U'),
-        (DOWN, 'D'),
+        (UP, '👍'),
+        (DOWN, '👎'),
     )
 
     value = models.SmallIntegerField(choices=VALUE_CHOICES,)
